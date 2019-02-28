@@ -3,18 +3,18 @@
 // license that can be found in the LICENSE file.
 
 /*
-This test file is part of the btcutil package rather than than the
-btcutil_test package so it can bridge access to the internals to properly test
+This test file is part of the vipsutil package rather than than the
+vipsutil_test package so it can bridge access to the internals to properly test
 cases which are either not possible or can't reliably be tested via the public
 interface. The functions are only exported while the tests are being run.
 */
 
-package btcutil
+package vipsutil
 
 import (
-	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcutil/base58"
-	"github.com/btcsuite/btcutil/bech32"
+	"github.com/vipstar-dev/vipsd/btcec"
+	"github.com/vipstar-dev/vipsutil/base58"
+	"github.com/vipstar-dev/vipsutil/bech32"
 	"golang.org/x/crypto/ripemd160"
 )
 
@@ -91,14 +91,14 @@ func TstAddressPubKey(serializedPubKey []byte, pubKeyFormat PubKeyFormat,
 }
 
 // TstAddressSAddr returns the expected script address bytes for
-// P2PKH and P2SH bitcoin addresses.
+// P2PKH and P2SH vipstarcoin addresses.
 func TstAddressSAddr(addr string) []byte {
 	decoded := base58.Decode(addr)
 	return decoded[1 : 1+ripemd160.Size]
 }
 
 // TstAddressSegwitSAddr returns the expected witness program bytes for
-// bech32 encoded P2WPKH and P2WSH bitcoin addresses.
+// bech32 encoded P2WPKH and P2WSH vipstarcoin addresses.
 func TstAddressSegwitSAddr(addr string) []byte {
 	_, data, err := bech32.Decode(addr)
 	if err != nil {

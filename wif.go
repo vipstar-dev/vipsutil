@@ -2,16 +2,16 @@
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
-package btcutil
+package vipsutil
 
 import (
 	"bytes"
 	"errors"
 
-	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcutil/base58"
+	"github.com/vipstar-dev/vipsd/btcec"
+	"github.com/vipstar-dev/vipsd/chaincfg"
+	"github.com/vipstar-dev/vipsd/chaincfg/chainhash"
+	"github.com/vipstar-dev/vipsutil/base58"
 )
 
 // ErrMalformedPrivateKey describes an error where a WIF-encoded private
@@ -40,7 +40,7 @@ type WIF struct {
 	// uncompressed (65-byte) one.
 	CompressPubKey bool
 
-	// netID is the bitcoin network identifier byte used when
+	// netID is the vipstarcoin network identifier byte used when
 	// WIF encoding the private key.
 	netID byte
 }
@@ -57,7 +57,7 @@ func NewWIF(privKey *btcec.PrivateKey, net *chaincfg.Params, compress bool) (*WI
 }
 
 // IsForNet returns whether or not the decoded WIF structure is associated
-// with the passed bitcoin network.
+// with the passed vipstarcoin network.
 func (w *WIF) IsForNet(net *chaincfg.Params) bool {
 	return w.netID == net.PrivateKeyID
 }

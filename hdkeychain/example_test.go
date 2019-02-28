@@ -7,8 +7,8 @@ package hdkeychain_test
 import (
 	"fmt"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcutil/hdkeychain"
+	"github.com/vipstar-dev/vipsd/chaincfg"
+	"github.com/vipstar-dev/vipsutil/hdkeychain"
 )
 
 // This example demonstrates how to generate a cryptographically random seed
@@ -117,7 +117,7 @@ func Example_defaultWalletLayout() {
 	}
 
 	// Get and show the address associated with the extended keys for the
-	// main bitcoin	network.
+	// main vipstarcoin	network.
 	acct0ExtAddr, err := acct0Ext10.Address(&chaincfg.MainNetParams)
 	if err != nil {
 		fmt.Println(err)
